@@ -1,2 +1,59 @@
+<mat-sidenav-container class="container" *ngIf="getToken()">
+  <!-- side-nav -->
 
-<router-outlet></router-outlet>
+  <mat-sidenav mode="side" opened class="sidenav">
+    <mat-toolbar class="toolbar">CRUD</mat-toolbar>
+    <!-- Elements list menu -->
+
+    <mat-list>
+      <mat-list-item *ngFor="let item of links">
+        <!-- <a matLine routerLink="OnNavega(item.key)">{{ item.name }}</a> -->
+        <button
+          mat-icon-button
+          class="example-icon"
+          aria-label="Example icon-button with share icon"
+          (click)="OnNavega(item.key)"
+        >
+          <mat-icon class="logo">{{ item.key }}</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+
+  <!-- side-nav-content -->
+
+  <mat-sidenav-content>
+    <mat-toolbar class="toolbar">
+      <mat-toolbar-row>
+        <button
+          mat-icon-button
+          class="example-icon"
+          aria-label="Example icon-button with menu icon"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+
+        <span class="example-spacer"></span>
+        <button
+          mat-icon-button
+          class="example-icon favorite-icon"
+          aria-label="Example icon-button with heart icon"
+        >
+          <mat-icon>favorite</mat-icon>
+        </button>
+        <button
+          mat-icon-button
+          class="example-icon"
+          aria-label="Example icon-button with share icon"
+          (click)="OnNavega('login')"
+        >
+          <mat-icon>key</mat-icon>
+        </button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+    <router-outlet name="Board"></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<router-outlet name="Login"></router-outlet>

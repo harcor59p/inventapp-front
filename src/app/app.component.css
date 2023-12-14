@@ -1,0 +1,38 @@
+
+
+.container{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  .sidenav{
+    background-color: rgb(89, 43, 43);
+
+    .toolbar{
+      color:  rgb(5, 5, 5);
+      background-color:rgb(99, 167, 236);
+      display: flex;
+      justify-content: center;
+    }
+
+    /*
+    * Navigation
+    */
+    .logo{
+      color:white;
+      text-decoration: none;
+    }
+  }
+
+  .mat-sidenav-content{
+    .toolbar{
+      color:rgb(213, 213, 222);
+      background-color:  rgb(5, 5, 5);
+    }
+
+}}
+.example-spacer {
+    flex: 1 1 auto;
+  }

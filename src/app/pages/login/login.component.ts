@@ -68,5 +68,9 @@ export class LoginComponent {
     });
   }
 
+  getToken() {
+    return localStorage.getItem("token");
+  }
+
 
 }

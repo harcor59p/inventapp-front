@@ -1,0 +1,85 @@
+
+<h1 mat-dialog-title>{{data ? 'Actualizar Producto': 'Registro Producto'}}
+  <mat-icon>product</mat-icon>
+  </h1>
+  <form [formGroup]="form" (ngSubmit)="onFormSubmit()">
+
+
+      <div mat-dialog-content class="content">
+          <div class="row">
+              <mat-form-field appearance="outline">
+                  <mat-label>ID</mat-label>
+                  <input matInput type="text" placeholder="__" formControlName="id"    readonly>
+              </mat-form-field>
+
+          </div>
+
+          <div class="row">
+              <mat-form-field appearance="outline">
+                  <mat-label>Codigo</mat-label>
+                  <input matInput placeholder="Codigo Producto" formControlName="codigo">
+              </mat-form-field>
+          </div>
+          <div class="row">
+
+              <mat-form-field appearance="outline">
+                  <mat-label>Descripción</mat-label>
+                  <input matInput type="text" placeholder="Descripcion Producto" formControlName="descripcion">
+              </mat-form-field>
+          </div>
+
+          <div class="row">
+
+              <mat-form-field appearance="outline">
+                  <mat-label>Codigo de Barras</mat-label>
+                  <input matInput type="text" placeholder="Codigo de Barras" formControlName="codigo_barras">
+              </mat-form-field>
+          </div>
+
+          <div class="row">
+
+            <mat-form-field appearance="outline">
+                <mat-label>Referencia</mat-label>
+                <input matInput type="text" placeholder="Referencia" formControlName="referencia">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+
+          <mat-form-field appearance="outline">
+              <mat-label>Grupo</mat-label>
+              <input matInput type="text" placeholder="Grupo" formControlName="grupo">
+          </mat-form-field>
+      </div>
+
+      <div class="row">
+
+        <mat-form-field appearance="outline">
+            <mat-label>Valor Ultimo Costo</mat-label>
+            <input matInput type="number" placeholder="Valor Ultimo Costo" formControlName="vr_ult_costo">
+        </mat-form-field>
+    </div>
+
+    <div class="row">
+
+      <mat-form-field appearance="outline">
+          <mat-label>Valor Precio</mat-label>
+          <input matInput type="number" placeholder="Valor Precio" formControlName="vr_precio">
+      </mat-form-field>
+  </div>
+
+
+          <!-- <mat-form-field>
+              <mat-label>Choose a date</mat-label>
+              <input matInput [matDatepicker]="picker">
+              <mat-hint>MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field> -->
+
+  </div>
+      <div mat-dialog-actions class="action">
+          <button mat-raised-button type="button" [mat-dialog-close]="false">Cancelar</button>
+          <button mat-raised-button color="primary" type="submit">{{data ? 'Actualizar': 'Guardar'}}</button>
+      </div>
+  </form>

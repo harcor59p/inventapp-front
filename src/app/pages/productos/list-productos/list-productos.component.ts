@@ -12,6 +12,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { RouterLink, Router } from '@angular/router';
 import { ApiproductoService } from '../../../services/api/apiproducto.service';
 import { mensajeService } from '../../../services/mensaje.service';
+import { ProductoInterface } from '../../../modelos/producto-interface';
+import { Observable } from 'rxjs';
+import { ResponseProductoInterface } from '../../../modelos/response-producto-interface';
+
 
 @Component({
   selector: 'app-list-productos',
@@ -22,6 +26,8 @@ import { mensajeService } from '../../../services/mensaje.service';
 })
 export class ListProductosComponent implements OnInit {
   ApiproductoService: any;
+  url: string;
+  http: any;
 
   ngOnInit() {
     this.getProductosList();
@@ -66,13 +72,19 @@ export class ListProductosComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   //Abre el formulario para creacion o edicion de productos
-  openAddProdForm() {
+  openAddProdForm(form: ProductoInterface): Observable<ResponseProductoInterface> {
+
+    let direccion = this.url + "/productos";
+    return this.http.post<any>(direccion, form);
 
   }
 
-  openEditProducto(data: any) {
-
+  openEditProducto(id: BigInteger, form: ProductoInterface): Observable<ResponseProductoInterface> {
+    let direccion = this.url + "/productos/" + id;
+    return this.http.put<any>(direccion, form);
   }
+
+
 
   deleteProducto(id: BigInteger) {
 

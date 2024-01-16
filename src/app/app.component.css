@@ -1,5 +1,4 @@
-
-
+/*
 .container{
   position: absolute;
   top: 0;
@@ -17,9 +16,9 @@
       justify-content: center;
     }
 
-    /*
+/*
     * Navigation
-    */
+
     .logo{
       color:white;
       text-decoration: none;
@@ -36,3 +35,5 @@
 .example-spacer {
     flex: 1 1 auto;
   }
+
+*/

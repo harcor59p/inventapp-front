@@ -63,8 +63,8 @@ export class ListProductosComponent implements OnInit {
     'grupo',
     'vr_ult_costo',
     'vr_precio',
-    'ult_compra',
-    'ult_venta',
+    //'ult_compra',
+    //'ult_venta',
     'accion'
 
   ];

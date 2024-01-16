@@ -7,5 +7,7 @@ export interface ProductoInterface {
   grupo:string,
   vr_ult_costo:BigInteger,
   vr_precio:BigInteger,
+  //ult_compra:Date,
+  //ult_venta:Date,
   accion:string
 }

@@ -12,9 +12,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { RouterLink, Router } from '@angular/router';
 import { ApiproductoService } from '../../../services/api/apiproducto.service';
 import { mensajeService } from '../../../services/mensaje.service';
-import { ProductoInterface } from '../../../modelos/producto-interface';
-import { Observable } from 'rxjs';
-import { ResponseProductoInterface } from '../../../modelos/response-producto-interface';
+import { AddEditProductos } from '../add-edit-productos/add-edit-productos.component';
+
+
+
 
 
 @Component({
@@ -26,8 +27,6 @@ import { ResponseProductoInterface } from '../../../modelos/response-producto-in
 })
 export class ListProductosComponent implements OnInit {
   ApiproductoService: any;
-  url: string;
-  http: any;
 
   ngOnInit() {
     this.getProductosList();
@@ -64,6 +63,8 @@ export class ListProductosComponent implements OnInit {
     'grupo',
     'vr_ult_costo',
     'vr_precio',
+    'ult_compra',
+    'ult_venta',
     'accion'
 
   ];
@@ -72,17 +73,44 @@ export class ListProductosComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   //Abre el formulario para creacion o edicion de productos
-  openAddProdForm(form: ProductoInterface): Observable<ResponseProductoInterface> {
+  // openAddProdForm(form: ProductoInterface): Observable<ResponseProductoInterface> {
 
-    let direccion = this.url + "/productos";
-    return this.http.post<any>(direccion, form);
+  //   let direccion = this.url + "/productos";
+  //   return this.http.post<any>(direccion, form);
 
+  // }
+
+  // openEditProducto(id: BigInteger, form: ProductoInterface): Observable<ResponseProductoInterface> {
+  //   let direccion = this.url + "/productos/" + id;
+  //   return this.http.put<any>(direccion, form);
+  // }
+
+  openAddProdForm() {
+    const dialogRef = this._dialog.open(AddEditProductos);
+    dialogRef.afterClosed().subscribe({
+      next: (val) => {
+        if (val) {
+          this.getProductosList();
+        }
+      },
+    });
   }
 
-  openEditProducto(id: BigInteger, form: ProductoInterface): Observable<ResponseProductoInterface> {
-    let direccion = this.url + "/productos/" + id;
-    return this.http.put<any>(direccion, form);
+
+  openEditProducto(data: any) {
+    const dialogRef = this._dialog.open(AddEditProductos, {
+      data,
+    });
+
+    dialogRef.afterClosed().subscribe({
+      next: (val) => {
+        if (val) {
+          this.getProductosList();
+        }
+      },
+    });
   }
+
 
 
 

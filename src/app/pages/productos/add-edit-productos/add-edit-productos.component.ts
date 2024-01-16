@@ -22,16 +22,16 @@ import { mensajeService } from '../../../services/mensaje.service';
 @Component({
   selector: 'app-add-edit-productos',
   standalone: true,
-  imports: [MatIconModule, MatButtonModule,  MatDatepickerModule, MatInputModule, MatRadioModule, MatDialogModule, MatNativeDateModule, MatFormFieldModule, MatSelectModule, FormsModule, CommonModule, ReactiveFormsModule],
+  imports: [MatIconModule, MatButtonModule, MatDatepickerModule, MatInputModule, MatRadioModule, MatDialogModule, MatNativeDateModule, MatFormFieldModule, MatSelectModule, FormsModule, CommonModule, ReactiveFormsModule],
   templateUrl: './add-edit-productos.component.html',
   styleUrl: './add-edit-productos.component.css'
 })
 
 
-export class PersonaComponent implements OnInit {
+export class AddEditProductos implements OnInit {
 
 
-  constructor(private _dialogRef: MatDialogRef<PersonaComponent>,
+  constructor(private _dialogRef: MatDialogRef<AddEditProductos>,
     @Inject(MAT_DIALOG_DATA) public data: ProductoInterface,
     private ProductoService: ApiproductoService,
     private mensaje: mensajeService,
@@ -43,9 +43,15 @@ export class PersonaComponent implements OnInit {
 
   form: FormGroup = new FormGroup({
     id: new FormControl(''),
-    nombre: new FormControl('', Validators.required),
-    direccion: new FormControl('', Validators.required),
-    telefono: new FormControl('', Validators.required),
+    codigo: new FormControl('', Validators.required),
+    descripcion: new FormControl('', Validators.required),
+    codigo_barras: new FormControl('', Validators.required),
+    referencia: new FormControl('', Validators.required),
+    grupo: new FormControl('', Validators.required),
+    vr_ult_costo: new FormControl('', Validators.required),
+    vr_precio: new FormControl('', Validators.required),
+    // ult_compra: new FormControl('', Validators.required),
+    // ult_venta: new FormControl('', Validators.required),
   });
 
 
@@ -67,7 +73,7 @@ export class PersonaComponent implements OnInit {
       } else {
         this.ProductoService.addProducto(this.form.value).subscribe({
           next: (val: any) => {
-            this.mensaje.openSnackBar("Producto Registrada");
+            this.mensaje.openSnackBar("Producto Registrado");
             this._dialogRef.close(true);
           },
           error: (err: any) => {

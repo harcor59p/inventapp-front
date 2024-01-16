@@ -9,7 +9,7 @@
           <div class="row">
               <mat-form-field appearance="outline">
                   <mat-label>ID</mat-label>
-                  <input matInput type="text" placeholder="__" formControlName="id"    readonly>
+                  <input matInput type="text" placeholder="__" formControlName="id" readonly>
               </mat-form-field>
 
           </div>
@@ -76,6 +76,26 @@
               <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field> -->
+
+            <!-- <div class="row">
+              <mat-form-field>
+                  <mat-label>Fecha Ultima Compra</mat-label>
+                  <input matInput [matDatepicker]="picker" formControlName="ult_compra">
+                  <mat-hint>MM/DD/YYYY</mat-hint>
+                  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div> -->
+
+            <!-- <div class="row">
+              <mat-form-field>
+                  <mat-label>Fecha Ultima Venta</mat-label>
+                  <input matInput [matDatepicker]="picker" formControlName="ult_venta">
+                  <mat-hint>MM/DD/YYYY</mat-hint>
+                  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div> -->
 
   </div>
       <div mat-dialog-actions class="action">

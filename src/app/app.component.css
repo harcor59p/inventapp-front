@@ -1,4 +1,4 @@
-/*
+
 .container{
   position: absolute;
   top: 0;
@@ -18,7 +18,7 @@
 
 /*
     * Navigation
-
+*/
     .logo{
       color:white;
       text-decoration: none;
@@ -36,4 +36,3 @@
     flex: 1 1 auto;
   }
 
-*/
